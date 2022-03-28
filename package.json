@@ -12,10 +12,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.2.0",
+    "@angular/cdk": "^13.3.1",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
+    "@angular/material": "^13.3.1",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
@@ -49,6 +51,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.10.0",
     "@typescript-eslint/parser": "~5.10.0",
+    "@valueadd/typed-urls": "^5.0.1",
     "cypress": "^9.1.0",
     "eslint": "~8.7.0",
     "eslint-config-prettier": "8.1.0",
@@ -59,7 +62,6 @@
     "nx": "13.9.5",
     "prettier": "^2.5.1",
     "ts-jest": "27.0.5",
-    "typescript": "~4.5.2",
-    "@valueadd/typed-urls": "^5.0.1"
+    "typescript": "~4.5.2"
   }
 }

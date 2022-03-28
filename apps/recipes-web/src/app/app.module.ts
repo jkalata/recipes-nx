@@ -9,7 +9,12 @@ import {RecipesStoreModule} from "../../../../libs/core/src/lib/modules/recipes-
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, RecipesStoreModule ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    RecipesStoreModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
