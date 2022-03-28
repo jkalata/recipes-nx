@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "recipes-web": "apps/recipes-web",
+    "recipes-web-e2e": "apps/recipes-web-e2e"
+  }
+}
