@@ -2,10 +2,10 @@
   "version": 2,
   "projects": {
     "core": "libs/core",
-    "data-access": "libs/data-access",
     "delete-recipe-feature": "libs/delete-recipe/feature",
     "delete-recipe-ui": "libs/delete-recipe/ui",
-    "domain": "libs/domain",
+    "details-feature": "libs/details/feature",
+    "details-ui": "libs/details/ui",
     "edit-recipe-feature": "libs/edit-recipe/feature",
     "edit-recipe-ui": "libs/edit-recipe/ui",
     "header-feature": "libs/header/feature",
@@ -14,6 +14,8 @@
     "recipes-list-ui": "libs/recipes-list/ui",
     "recipes-web": "apps/recipes-web",
     "recipes-web-e2e": "apps/recipes-web-e2e",
+    "shared-data-access": "libs/shared/data-access",
+    "shared-domain": "libs/shared/domain",
     "shell": "libs/shell",
     "ui-author-dialog": "libs/ui-author-dialog",
     "ui-confirm-dialog": "libs/ui-confirm-dialog"

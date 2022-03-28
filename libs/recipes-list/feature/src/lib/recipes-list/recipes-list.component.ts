@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {RecipesFacade} from "../../../../../data-access/src/lib/+state/recipes.facade";
 import {Router} from "@angular/router";
+import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 
 @Component({
   selector: 'recipes-nx-recipes-list-feature',
