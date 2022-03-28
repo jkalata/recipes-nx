@@ -3,12 +3,19 @@
   "projects": {
     "core": "libs/core",
     "data-access": "libs/data-access",
+    "delete-recipe-feature": "libs/delete-recipe/feature",
+    "delete-recipe-ui": "libs/delete-recipe/ui",
     "domain": "libs/domain",
+    "edit-recipe-feature": "libs/edit-recipe/feature",
+    "edit-recipe-ui": "libs/edit-recipe/ui",
     "header-feature": "libs/header/feature",
     "header-ui": "libs/header/ui",
+    "recipes-list-feature": "libs/recipes-list/feature",
+    "recipes-list-ui": "libs/recipes-list/ui",
     "recipes-web": "apps/recipes-web",
     "recipes-web-e2e": "apps/recipes-web-e2e",
     "shell": "libs/shell",
-    "ui-author-dialog": "libs/ui-author-dialog"
+    "ui-author-dialog": "libs/ui-author-dialog",
+    "ui-confirm-dialog": "libs/ui-confirm-dialog"
   }
 }

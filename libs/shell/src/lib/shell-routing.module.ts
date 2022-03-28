@@ -6,6 +6,12 @@ const routes: Route[] = [
   {
     path: '',
     component: RecipesComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import("@recipes-nx/recipes-list/feature").then(m => m.RecipesListFeatureModule)
+      }
+    ]
   }
 ]
 

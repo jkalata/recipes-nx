@@ -15,4 +15,4 @@ import {RecipesFacade} from "./+state/recipes.facade";
   ],
   providers: [RecipesDataService, RecipesFacade],
 })
-export class RecipesWebDataAccessModule {}
+export class DataAccessModule {}

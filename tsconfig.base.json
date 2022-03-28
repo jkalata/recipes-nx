@@ -17,11 +17,24 @@
     "paths": {
       "@recipes-nx/core": ["libs/core/src/index.ts"],
       "@recipes-nx/data-access": ["libs/data-access/src/index.ts"],
+      "@recipes-nx/delete-recipe/feature": [
+        "libs/delete-recipe/feature/src/index.ts"
+      ],
+      "@recipes-nx/delete-recipe/ui": ["libs/delete-recipe/ui/src/index.ts"],
       "@recipes-nx/domain": ["libs/domain/src/index.ts"],
+      "@recipes-nx/edit-recipe/feature": [
+        "libs/edit-recipe/feature/src/index.ts"
+      ],
+      "@recipes-nx/edit-recipe/ui": ["libs/edit-recipe/ui/src/index.ts"],
       "@recipes-nx/header/feature": ["libs/header/feature/src/index.ts"],
       "@recipes-nx/header/ui": ["libs/header/ui/src/index.ts"],
+      "@recipes-nx/recipes-list/feature": [
+        "libs/recipes-list/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/ui": ["libs/recipes-list/ui/src/index.ts"],
       "@recipes-nx/shell": ["libs/shell/src/index.ts"],
-      "@recipes-nx/ui-author-dialog": ["libs/ui-author-dialog/src/index.ts"]
+      "@recipes-nx/ui-author-dialog": ["libs/ui-author-dialog/src/index.ts"],
+      "@recipes-nx/ui-confirm-dialog": ["libs/ui-confirm-dialog/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

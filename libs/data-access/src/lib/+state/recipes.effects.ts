@@ -3,8 +3,8 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {fetch} from "@nrwl/angular";
 import {fromRecipesActions} from "./recipes.actions";
 import {RecipesDataService} from "../services/recipes-data.service";
-import {map} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class RecipesEffects {
@@ -13,8 +13,8 @@ export class RecipesEffects {
     fetch({
       run: () => {
         return this.recipesDataService.getCollection().pipe(
-            map(response => new fromRecipesActions.GetRecipesCollectionSuccess(response))
-          )
+          map(response => new fromRecipesActions.GetRecipesCollectionSuccess(response))
+        )
       },
       onError: (a: fromRecipesActions.GetRecipesCollection, error: HttpErrorResponse) => new fromRecipesActions.GetRecipesCollectionFail(error)
     })

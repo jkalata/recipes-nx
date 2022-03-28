@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppRoutingModule} from "./app-routing.module";
-import {RecipesStoreModule} from "../../../../libs/core/src/lib/modules/recipes-store.module";
+import {CoreModule} from "@recipes-nx/core";
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import {RecipesStoreModule} from "../../../../libs/core/src/lib/modules/recipes-
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    RecipesStoreModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

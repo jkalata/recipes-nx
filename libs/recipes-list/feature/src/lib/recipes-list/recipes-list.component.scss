@@ -1,0 +1,12 @@
+.recipes-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipes-container__list {
+  width:100%;
+  max-width: 300px;
+}
+
+.recipes-container__outlet {
+}

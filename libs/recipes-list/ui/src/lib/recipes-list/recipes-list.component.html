@@ -1,0 +1,7 @@
+<mat-card *ngFor="let recipe of recipes" (click)="onClick(recipe._id)" class="recipe-card">
+  <div>{{recipe.name}}</div>
+  <div class="recipe-card__buttons">
+    <recipes-nx-edit-recipe></recipes-nx-edit-recipe>
+    <recipes-nx-delete-recipe [id]="recipe._id"></recipes-nx-delete-recipe>
+  </div>
+</mat-card>
