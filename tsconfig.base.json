@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@recipes-nx/core": ["libs/core/src/index.ts"],
+      "@recipes-nx/data-access": ["libs/data-access/src/index.ts"],
+      "@recipes-nx/domain": ["libs/domain/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

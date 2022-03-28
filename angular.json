@@ -1,6 +1,9 @@
 {
   "version": 2,
   "projects": {
+    "core": "libs/core",
+    "data-access": "libs/data-access",
+    "domain": "libs/domain",
     "recipes-web": "apps/recipes-web",
     "recipes-web-e2e": "apps/recipes-web-e2e"
   }

@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from "./app-routing.module";
+import {RecipesStoreModule} from "../../../../libs/core/src/lib/modules/recipes-store.module";
+
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, RecipesStoreModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
