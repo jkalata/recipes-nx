@@ -119,6 +119,13 @@ export class RecipesEffects {
     )
   );
 
+  deleteRecipeSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromRecipesActions.Types.DeleteRecipeSuccess),
+      map(() => new fromRecipesActions.GetRecipesCollection())
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private recipesDataService: RecipesDataService

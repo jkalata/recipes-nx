@@ -4,7 +4,6 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { HttpErrorResponse } from '@angular/common/http';
 
 export const RECIPES_FEATURE_KEY = 'recipes';
-interface RepositoryEntityState extends EntityState<RecipeModel> {}
 
 export function selectId(item: RecipeModel): string {
   return item._id;
@@ -15,7 +14,7 @@ const adapter: EntityAdapter<RecipeModel> = createEntityAdapter<RecipeModel>({
 });
 
 export interface RecipesState {
-  recipes: RepositoryEntityState;
+  recipes: EntityState<RecipeModel>;
   activeRecipe: RecipeModel | null;
   loading: boolean;
   error: HttpErrorResponse | null;
@@ -54,7 +53,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.GetRecipesCollectionFail: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: false,
         error: action.payload,
       };
@@ -90,7 +88,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.AddRecipe: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: true,
         error: null,
       };
@@ -107,7 +104,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.AddRecipeFail: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: false,
         error: action.payload,
       };
@@ -116,7 +112,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.UpdateRecipe: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: true,
         error: null,
       };
@@ -133,7 +128,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.UpdateRecipeFail: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: false,
         error: action.payload,
       };
@@ -142,7 +136,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.DeleteRecipe: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: true,
         error: null,
       };
@@ -159,7 +152,6 @@ export function recipesReducer(
     case fromRecipesActions.Types.DeleteRecipeFail: {
       return {
         ...state,
-        recipes: adapter.getInitialState(),
         loading: false,
         error: action.payload,
       };

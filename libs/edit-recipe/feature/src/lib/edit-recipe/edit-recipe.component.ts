@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,11 +8,11 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditRecipeComponent {
-
+  @Input() id = '';
   constructor(private router: Router) { }
 
   edit(): void {
-    this.router.navigate(['edit'])
+    this.router.navigate([`${this.id}`,'edit'])
   }
 
 }

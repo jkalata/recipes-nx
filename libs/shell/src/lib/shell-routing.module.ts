@@ -12,6 +12,10 @@ const routes: Route[] = [
         loadChildren: () => import('@recipes-nx/feature-add-recipe').then(m => m.FeatureAddRecipeModule),
       },
       {
+        path: ':id/edit',
+        loadChildren: () => import('@recipes-nx/feature-edit-recipe').then(m => m.FeatureEditRecipeModule),
+      },
+      {
         path: ':id',
         loadChildren: () =>
           import('@recipes-nx/details/feature').then(

@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {RecipeModel} from "@recipes-nx/shared-domain";
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'recipes-nx-recipe-details-feature',
   templateUrl: './recipe-details.component.html',
@@ -21,8 +23,10 @@ export class RecipeDetailsComponent {
   }
 
   private listenForIdChanges(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.recipeFacade.getRecipeDetails(params['id']);
+    this.activatedRoute.params
+      .pipe(untilDestroyed(this))
+      .subscribe(params => {
+        this.recipeFacade.getRecipeDetails(params['id']);
     })
   }
 }
