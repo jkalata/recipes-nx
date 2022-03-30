@@ -5,6 +5,7 @@ import { RecipesListFeatureRoutingModule } from './recipes-list-feature-routing.
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { SharedDataAccessModule } from '@recipes-nx/shared-data-access';
 import { RecipesListUiModule } from '@recipes-nx/recipes-list/ui';
+import {AddRecipeFeatureModule} from "@recipes-nx/add-recipe/feature";
 
 @NgModule({
   imports: [
@@ -13,7 +14,11 @@ import { RecipesListUiModule } from '@recipes-nx/recipes-list/ui';
     RecipesListFeatureRoutingModule,
     SharedDataAccessModule,
     MatDialogModule,
+    AddRecipeFeatureModule
   ],
   declarations: [RecipesListComponent],
+  exports: [
+    RecipesListComponent
+  ]
 })
 export class RecipesListFeatureModule {}

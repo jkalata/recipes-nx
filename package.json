@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@ngneat/error-tailor": "^2.1.0",
+    "@ngneat/reactive-forms": "^4.0.4",
     "@ngrx/effects": "~13.0.2",
     "@ngrx/entity": "~13.0.2",
     "@ngrx/router-store": "~13.0.2",

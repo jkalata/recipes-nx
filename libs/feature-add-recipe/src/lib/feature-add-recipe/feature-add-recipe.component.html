@@ -1,0 +1,6 @@
+<h1>Add recipe</h1>
+<recipes-nx-recipe-form-feature
+  *ngIf="form"
+  [formGroup]="form"
+  (save)="addRecipe()"
+></recipes-nx-recipe-form-feature>

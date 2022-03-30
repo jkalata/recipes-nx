@@ -1,0 +1,51 @@
+<form [formGroup]="form" class="form-container" errorTailor>
+  <section class="form-container__col">
+    <h2>Info</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Recipe name</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Preparation time in minutes</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="preparationTimeInMinutes"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput type="text" formControlName="description"></textarea>
+    </mat-form-field>
+  </section>
+  <section class="form-container__col">
+    <h2>Ingredients</h2>
+    <div
+      *ngFor="let formGroup of form.get('ingredients').controls; let i = index"
+      [formGroup]="formGroup"
+      class="form-container__col__ingredient-field"
+    >
+      <mat-form-field
+        appearance="fill"
+        class="form-container__col__ingredient-field__item"
+      >
+        <mat-label>Ingredient name</mat-label>
+        <input type="text" matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        class="form-container__col__ingredient-field__item"
+      >
+        <mat-label>Quantity</mat-label>
+        <input type="text" matInput formControlName="quantity" />
+      </mat-form-field>
+      <recipes-nx-remove-ingredient-button *ngIf="form.get('ingredients').length > 2" (remove)="onRemoveIngredient(i)"></recipes-nx-remove-ingredient-button>
+    </div>
+    <recipes-nx-add-ingredient-button
+      (add)="onAddIngredient()"
+    ></recipes-nx-add-ingredient-button>
+  </section>
+</form>
+

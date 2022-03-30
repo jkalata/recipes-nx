@@ -1,8 +1,8 @@
 <div *ngIf="recipe" class="details-container">
   <header class="details-container__header">
     <h1 class="details-container__header__recipe-name">{{recipe.name}}</h1>
-    <recipes-nx-edit-recipe></recipes-nx-edit-recipe>
-    <recipes-nx-delete-recipe></recipes-nx-delete-recipe>
+      <recipes-nx-edit-recipe></recipes-nx-edit-recipe>
+      <recipes-nx-delete-recipe></recipes-nx-delete-recipe>
   </header>
   <section>
     <p>Preparation time: {{recipe.preparationTimeInMinutes | preparationTime}}</p>

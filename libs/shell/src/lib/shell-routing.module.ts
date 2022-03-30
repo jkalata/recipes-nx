@@ -8,10 +8,18 @@ const routes: Route[] = [
     component: RecipesComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import("@recipes-nx/recipes-list/feature").then(m => m.RecipesListFeatureModule)
-      }
-    ]
+        path: 'add',
+        loadChildren: () => import('@recipes-nx/feature-add-recipe').then(m => m.FeatureAddRecipeModule),
+      },
+      {
+        path: ':id',
+        loadChildren: () =>
+          import('@recipes-nx/details/feature').then(
+            (m) => m.DetailsFeatureModule
+          ),
+      },
+
+    ],
   }
 ]
 

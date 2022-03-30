@@ -1,12 +1,9 @@
 .recipes-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .recipes-container__list {
-  width:100%;
-  max-width: 300px;
+  margin-top: 1em;
 }
 
-.recipes-container__outlet {
-}

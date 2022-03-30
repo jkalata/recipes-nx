@@ -1,23 +1,16 @@
-import {Route, RouterModule} from "@angular/router";
-import {NgModule} from "@angular/core";
-import {RecipesListComponent} from "./recipes-list/recipes-list.component";
+import { Route, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 const routes: Route[] = [
   {
     path: '',
-    component: RecipesListComponent,
-    children: [
-      {
-        path: ':id',
-        loadChildren: () => import("@recipes-nx/details/feature").then(m => m.DetailsFeatureModule)
-      }
-    ]
-  }
-]
+    component: RecipesListComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
 export class RecipesListFeatureRoutingModule {}

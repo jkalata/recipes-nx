@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
@@ -10,17 +10,19 @@ import {RecipeModel} from "@recipes-nx/shared-domain";
   styleUrls: ['./recipe-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RecipeDetailsComponent implements OnInit {
-  private recipeId: string = this.activatedRoute.snapshot.params['id'];
-
+export class RecipeDetailsComponent {
   recipe$: Observable<RecipeModel | null> = this.recipeFacade.activeRecipe;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private recipeFacade: RecipesFacade
-  ) {}
+  ) {
+    this.listenForIdChanges()
+  }
 
-  ngOnInit(): void {
-    this.recipeFacade.getRecipeDetails(this.recipeId);
+  private listenForIdChanges(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.recipeFacade.getRecipeDetails(params['id']);
+    })
   }
 }

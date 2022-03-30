@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/recipe-form/ui",
+  "sourceRoot": "libs/shared/recipe-form/ui/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/recipe-form/ui"],
+      "options": {
+        "jestConfig": "libs/shared/recipe-form/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/recipe-form/ui/src/**/*.ts",
+          "libs/shared/recipe-form/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

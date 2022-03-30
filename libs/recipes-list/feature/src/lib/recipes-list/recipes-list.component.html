@@ -1,8 +1,6 @@
 <div class="recipes-container">
-  <div class="recipes-container__list" >
-    <recipes-nx-recipes-list [recipes]="recipes$ | async" (navigateToDetails)="navigate($event)"></recipes-nx-recipes-list>
-  </div>
-  <div class="recipes-container__outlet">
-    <router-outlet></router-outlet>
-  </div>
+    <recipes-nx-add-recipe></recipes-nx-add-recipe>
+    <div class="recipes-container__list">
+      <recipes-nx-recipes-list [recipes]="recipes$ | async" (navigateToDetails)="navigate($event)"></recipes-nx-recipes-list>
+    </div>
 </div>
