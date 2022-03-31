@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import {AddRecipePayload, RecipeModel} from '@recipes-nx/shared-domain';
 import { urlFactory } from '@valueadd/typed-urls';
 import { HttpClient } from '@angular/common/http';
-import {environment} from "../../../../../../apps/recipes-web/src/environments/environment";
 
 @Injectable()
 export class RecipesDataService {
-  private readonly url = `${environment.apiURL}/recipe`;
+  private readonly url = `${this.apiURL}/recipe`;
   private readonly endpoints = {
     getCollection: urlFactory(this.url),
     getDetails: urlFactory(`${this.url}/:id`),
@@ -16,7 +15,10 @@ export class RecipesDataService {
     delete: urlFactory(`${this.url}/:id`),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject('API_URL') private apiURL: string
+  ) {}
 
   getCollection(): Observable<RecipeModel[]> {
     return this.http.get<RecipeModel[]>(this.endpoints.getCollection.url());
