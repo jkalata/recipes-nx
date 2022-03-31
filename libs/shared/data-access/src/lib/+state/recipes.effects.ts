@@ -1,128 +1,99 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
-import { fromRecipesActions } from './recipes.actions';
-import { RecipesDataService } from '../services/recipes-data.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import * as RecipesActions from './recipes.actions';
+import {RecipesDataService} from '../services/recipes-data.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {catchError, map, mergeMap} from 'rxjs/operators';
+import {RecipeModel} from "@recipes-nx/shared-domain";
+import {EMPTY} from "rxjs";
 
 @Injectable()
 export class RecipesEffects {
   getRecipesCollection$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.GetRecipesCollection),
-      fetch({
-        run: () => {
-          return this.recipesDataService
-            .getCollection()
-            .pipe(
-              map(
-                (response) =>
-                  new fromRecipesActions.GetRecipesCollectionSuccess(response)
-              )
-            );
-        },
-        onError: (
-          a: fromRecipesActions.GetRecipesCollection,
-          error: HttpErrorResponse
-        ) => new fromRecipesActions.GetRecipesCollectionFail(error),
-      })
+      ofType(RecipesActions.getRecipesCollection),
+      mergeMap(() => this.recipesDataService.getCollection().pipe(
+        map((recipes: RecipeModel[]) => RecipesActions.getRecipesCollectionSuccess({recipes})),
+        catchError(error => {
+          RecipesActions.getRecipesCollectionFail({error});
+          return EMPTY;
+        })
+      ))
     )
   );
 
   getRecipesDetails$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.GetRecipeDetails),
-      fetch({
-        run: (action: fromRecipesActions.GetRecipeDetails) => {
-          return this.recipesDataService
-            .getDetails(action.payload)
-            .pipe(
-              map(
-                (response) =>
-                  new fromRecipesActions.GetRecipeDetailsSuccess(response)
-              )
-            );
-        },
-        onError: (
-          a: fromRecipesActions.GetRecipeDetails,
-          error: HttpErrorResponse
-        ) => new fromRecipesActions.GetRecipeDetailsFail(error),
+      ofType(RecipesActions.getRecipeDetails),
+      mergeMap(action => {
+        return this.recipesDataService.getDetails(action.id).pipe(
+          map((recipe: RecipeModel) => RecipesActions.getRecipeDetailsSuccess({recipe})),
+          catchError((error: HttpErrorResponse) => {
+            RecipesActions.getRecipeDetailsFail({error})
+            return EMPTY;
+          })
+        )
       })
     )
   );
 
   addRecipe$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.AddRecipe),
-      fetch({
-        run: (action: fromRecipesActions.AddRecipe) => {
-          return this.recipesDataService
-            .add(action.payload)
-            .pipe(map(() => new fromRecipesActions.AddRecipeSuccess()));
-        },
-        onError: (a: fromRecipesActions.AddRecipe, error: HttpErrorResponse) =>
-          new fromRecipesActions.AddRecipeFail(error),
-      })
+      ofType(RecipesActions.addRecipe),
+      mergeMap(action => this.recipesDataService.add(action.recipe).pipe(
+        map(() => RecipesActions.addRecipeSuccess()),
+        catchError((error: HttpErrorResponse) => {
+          RecipesActions.addRecipeFail(error)
+          return EMPTY;
+        })
+      ))
     )
   );
 
   addRecipeSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.AddRecipeSuccess),
-      map(() => new fromRecipesActions.GetRecipesCollection())
+      ofType(RecipesActions.addRecipeSuccess),
+      map(() => RecipesActions.getRecipesCollection())
     )
   );
 
   updateRecipe$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.UpdateRecipe),
-      fetch({
-        run: (action: fromRecipesActions.UpdateRecipe) => {
-          return this.recipesDataService
-            .update(action.payload)
-            .pipe(map(() => new fromRecipesActions.UpdateRecipeSuccess()));
-        },
-        onError: (
-          action: fromRecipesActions.UpdateRecipe,
-          error: HttpErrorResponse
-        ) => {
-          return new fromRecipesActions.UpdateRecipeFail(error);
-        },
-      })
+      ofType(RecipesActions.updateRecipe),
+      mergeMap(action => this.recipesDataService.update(action.recipe).pipe(
+        map(() => RecipesActions.updateRecipeSuccess()),
+        catchError((error: HttpErrorResponse) => {
+          RecipesActions.updateRecipeFail(error);
+          return EMPTY
+        })
+      ))
     )
   );
 
   updateRecipeSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.UpdateRecipeSuccess),
-      map(() => new fromRecipesActions.GetRecipesCollection())
+      ofType(RecipesActions.updateRecipeSuccess),
+      map(() => RecipesActions.getRecipesCollection())
     )
   );
 
   deleteRecipe$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.DeleteRecipe),
-      fetch({
-        run: (action: fromRecipesActions.DeleteRecipe) => {
-          return this.recipesDataService
-            .delete(action.payload)
-            .pipe(map(() => new fromRecipesActions.DeleteRecipeSuccess()));
-        },
-        onError: (
-          action: fromRecipesActions.DeleteRecipe,
-          error: HttpErrorResponse
-        ) => {
-          return new fromRecipesActions.DeleteRecipeFail(error);
-        },
-      })
+      ofType(RecipesActions.deleteRecipe),
+      mergeMap(action => this.recipesDataService.delete(action.id).pipe(
+        map(() => RecipesActions.updateRecipeSuccess()),
+        catchError((error: HttpErrorResponse) => {
+          RecipesActions.deleteRecipeFail(error);
+          return EMPTY;
+        })
+      ))
     )
   );
 
   deleteRecipeSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromRecipesActions.Types.DeleteRecipeSuccess),
-      map(() => new fromRecipesActions.GetRecipesCollection())
+      ofType(RecipesActions.deleteRecipeSuccess),
+      map(() => RecipesActions.getRecipesCollection())
     )
   );
 

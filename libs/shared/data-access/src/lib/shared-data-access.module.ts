@@ -13,6 +13,9 @@ import { RecipesFacade } from './+state/recipes.facade';
     StoreModule.forFeature(RECIPES_FEATURE_KEY, recipesReducer),
     EffectsModule.forFeature([RecipesEffects]),
   ],
-  providers: [RecipesDataService, RecipesFacade],
+  providers: [
+    RecipesDataService,
+    RecipesFacade
+  ],
 })
 export class SharedDataAccessModule {}
