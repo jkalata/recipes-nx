@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
-import {Route, RouterModule} from "@angular/router";
-import {RecipesComponent} from "./recipes/recipes.component";
+import { NgModule } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
+import { RecipesComponent } from './recipes/recipes.component';
 
 const routes: Route[] = [
   {
@@ -9,11 +9,17 @@ const routes: Route[] = [
     children: [
       {
         path: 'add',
-        loadChildren: () => import('@recipes-nx/feature-add-recipe').then(m => m.FeatureAddRecipeModule),
+        loadChildren: () =>
+          import('@recipes-nx/editing-feature-add-recipe').then(
+            (m) => m.FeatureAddRecipeModule
+          ),
       },
       {
         path: ':id/edit',
-        loadChildren: () => import('@recipes-nx/feature-edit-recipe').then(m => m.FeatureEditRecipeModule),
+        loadChildren: () =>
+          import('@recipes-nx/editing-feature-edit-recipe').then(
+            (m) => m.FeatureEditRecipeModule
+          ),
       },
       {
         path: ':id',
@@ -22,14 +28,12 @@ const routes: Route[] = [
             (m) => m.DetailsFeatureModule
           ),
       },
-
     ],
-  }
-]
-
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RecipesWebShellRoutingModule{}
+export class RecipesWebShellRoutingModule {}

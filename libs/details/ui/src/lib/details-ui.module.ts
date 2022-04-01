@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {EditRecipeFeatureModule} from "@recipes-nx/edit-recipe/feature";
-import {DeleteRecipeFeatureModule} from "@recipes-nx/delete-recipe/feature";
-import {PreparationTimePipeModule} from "./pipes/preparation-time.pipe";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { EditRecipeFeatureModule } from '@recipes-nx/recipes-list-edit-recipe-button-feature';
+import { DeleteRecipeFeatureModule } from '@recipes-nx/delete-recipe/feature';
+import { PreparationTimePipeModule } from './pipes/preparation-time.pipe';
 
 @NgModule({
   imports: [
@@ -14,13 +14,9 @@ import {PreparationTimePipeModule} from "./pipes/preparation-time.pipe";
     MatIconModule,
     EditRecipeFeatureModule,
     DeleteRecipeFeatureModule,
-    PreparationTimePipeModule
+    PreparationTimePipeModule,
   ],
-  declarations: [
-    RecipeDetailsComponent
-  ],
-  exports: [
-    RecipeDetailsComponent
-  ],
+  declarations: [RecipeDetailsComponent],
+  exports: [RecipeDetailsComponent],
 })
 export class DetailsUiModule {}

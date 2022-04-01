@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {AuthorDialogComponent} from "../../../../../ui-author-dialog/src/lib/author-dialog/author-dialog.component";
+import {AuthorDialogComponent} from "../../../../ui-author-dialog/src/lib/author-dialog/author-dialog.component";
 
 @Component({
   selector: 'recipes-header-feature',

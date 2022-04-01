@@ -15,29 +15,54 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@recipes-nx/add-recipe/feature": [
-        "libs/add-recipe/feature/src/index.ts"
-      ],
-      "@recipes-nx/add-recipe/ui": ["libs/add-recipe/ui/src/index.ts"],
       "@recipes-nx/core": ["libs/core/src/index.ts"],
+      "@recipes-nx/delete-recipe-ui-confirm-dialog": [
+        "libs/delete-recipe/ui-confirm-dialog/src/index.ts"
+      ],
       "@recipes-nx/delete-recipe/feature": [
         "libs/delete-recipe/feature/src/index.ts"
       ],
       "@recipes-nx/delete-recipe/ui": ["libs/delete-recipe/ui/src/index.ts"],
       "@recipes-nx/details/feature": ["libs/details/feature/src/index.ts"],
       "@recipes-nx/details/ui": ["libs/details/ui/src/index.ts"],
-      "@recipes-nx/edit-recipe/feature": [
-        "libs/edit-recipe/feature/src/index.ts"
+      "@recipes-nx/editing-feature-add-recipe": [
+        "libs/editing/feature-add-recipe/src/index.ts"
       ],
-      "@recipes-nx/edit-recipe/ui": ["libs/edit-recipe/ui/src/index.ts"],
-      "@recipes-nx/feature-add-recipe": [
-        "libs/feature-add-recipe/src/index.ts"
+      "@recipes-nx/editing-feature-edit-recipe": [
+        "libs/editing/feature-edit-recipe/src/index.ts"
       ],
-      "@recipes-nx/feature-edit-recipe": [
-        "libs/feature-edit-recipe/src/index.ts"
+      "@recipes-nx/editing-shared-recipe-form": [
+        "libs/editing/shared/recipe-form/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-add-ingredient-button": [
+        "libs/editing/shared/recipe-form/ui/add-ingredient-button/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-form": [
+        "libs/editing/shared/recipe-form/ui/form/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-remove-ingredient-button": [
+        "libs/editing/editing/shared/recipe-form/ui/remove-ingredient-button/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-save-recipe": [
+        "libs/editing/shared/recipe-form/ui/save-recipe/src/index.ts"
+      ],
+      "@recipes-nx/header-ui-author-dialog": [
+        "libs/header/ui-author-dialog/src/index.ts"
       ],
       "@recipes-nx/header/feature": ["libs/header/feature/src/index.ts"],
       "@recipes-nx/header/ui": ["libs/header/ui/src/index.ts"],
+      "@recipes-nx/recipes-list-add-recipe-button-feature": [
+        "libs/recipes-list/add-recipe-button/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-add-recipe-button-ui": [
+        "libs/recipes-list/add-recipe-button/ui/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-edit-recipe-button-feature": [
+        "libs/recipes-list/edit-recipe-button/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-edit-recipe-button-ui": [
+        "libs/recipes-list/edit-recipe-button/ui/src/index.ts"
+      ],
       "@recipes-nx/recipes-list/feature": [
         "libs/recipes-list/feature/src/index.ts"
       ],
@@ -46,25 +71,8 @@
         "libs/shared/data-access/src/index.ts"
       ],
       "@recipes-nx/shared-domain": ["libs/shared/domain/src/index.ts"],
-      "@recipes-nx/shared-recipe-form-ui": [
-        "libs/shared/recipe-form/ui/src/index.ts"
-      ],
-      "@recipes-nx/shared/recipe-form/feature": [
-        "libs/shared/recipe-form/feature/src/index.ts"
-      ],
-      "@recipes-nx/shared/ui-add-ingredient-button": [
-        "libs/shared/ui-add-ingredient-button/src/index.ts"
-      ],
-      "@recipes-nx/shared/ui-remove-ingredient-button": [
-        "libs/shared/ui-remove-ingredient-button/src/index.ts"
-      ],
-      "@recipes-nx/shared/ui-save-recipe": [
-        "libs/shared/ui-save-recipe/src/index.ts"
-      ],
       "@recipes-nx/shared/utils": ["libs/shared/utils/src/index.ts"],
-      "@recipes-nx/shell": ["libs/shell/src/index.ts"],
-      "@recipes-nx/ui-author-dialog": ["libs/ui-author-dialog/src/index.ts"],
-      "@recipes-nx/ui-confirm-dialog": ["libs/ui-confirm-dialog/src/index.ts"]
+      "@recipes-nx/shell": ["libs/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

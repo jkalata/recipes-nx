@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/delete-recipe/ui-confirm-dialog",
+  "sourceRoot": "libs/delete-recipe/ui-confirm-dialog/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/delete-recipe/ui-confirm-dialog"],
+      "options": {
+        "jestConfig": "libs/delete-recipe/ui-confirm-dialog/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/delete-recipe/ui-confirm-dialog/src/**/*.ts",
+          "libs/delete-recipe/ui-confirm-dialog/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
