@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'editing-shared-recipe-form-utils',
-  preset: '../../../../../jest.preset.js',
+  displayName: 'shared-ui-confirm-dialog',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,8 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory:
-    '../../../../../coverage/libs/editing/shared/recipe-form/utils',
+  coverageDirectory: '../../../coverage/libs/shared/ui-confirm-dialog',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

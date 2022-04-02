@@ -4,7 +4,6 @@
     "core": "libs/core",
     "delete-recipe-feature": "libs/delete-recipe/feature",
     "delete-recipe-ui": "libs/delete-recipe/ui",
-    "delete-recipe-ui-confirm-dialog": "libs/delete-recipe/ui-confirm-dialog",
     "details-feature": "libs/details/feature",
     "details-ui": "libs/details/ui",
     "editing-feature-add-recipe": "libs/editing/feature-add-recipe",
@@ -15,7 +14,7 @@
     "editing-shared-recipe-form-ui-form": "libs/editing/shared/recipe-form/ui/form",
     "editing-shared-recipe-form-ui-remove-ingredient-button": "libs/editing/shared/recipe-form/ui/remove-ingredient-button",
     "editing-shared-recipe-form-ui-save-recipe": "libs/editing/shared/recipe-form/ui/save-recipe",
-    "editing-shared-recipe-form-utils": "libs/editing/shared/recipe-form/utils",
+    "editing-shared-utils": "libs/editing/shared/utils",
     "header-feature": "libs/header/feature",
     "header-ui": "libs/header/ui",
     "header-ui-author-dialog": "libs/header/ui-author-dialog",
@@ -33,6 +32,7 @@
     "recipes-web-e2e": "apps/recipes-web-e2e",
     "shared-data-access": "libs/shared/data-access",
     "shared-domain": "libs/shared/domain",
+    "shared-ui-confirm-dialog": "libs/shared/ui-confirm-dialog",
     "shared-utils": "libs/shared/utils",
     "shell": "libs/shell"
   }

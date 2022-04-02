@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'delete-recipe-ui-confirm-dialog',
-  preset: '../../../jest.preset.js',
+  displayName: 'editing-shared-utils',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/delete-recipe/ui-confirm-dialog',
+  coverageDirectory: '../../../../coverage/libs/editing/shared/utils',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

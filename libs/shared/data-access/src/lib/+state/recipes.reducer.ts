@@ -54,7 +54,6 @@ export const recipesReducer = createReducer(
     error: null,
   })),
   on(fromRecipesActions.getRecipeDetailsSuccess, (state, {recipe}) => {
-    console.log(recipe)
     return {
       ...state,
       activeRecipe: recipe,
