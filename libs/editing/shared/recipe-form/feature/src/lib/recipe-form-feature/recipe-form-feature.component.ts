@@ -13,6 +13,7 @@ import {
   FormGroup,
 } from '@ngneat/reactive-forms';
 import { IngredientModel, RecipeModel } from '@recipes-nx/shared-domain';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'recipes-nx-recipe-form-feature',
@@ -27,7 +28,8 @@ export class RecipeFormFeatureComponent implements OnInit {
 
   constructor(
     private controlContainer: ControlContainer,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,5 +60,9 @@ export class RecipeFormFeatureComponent implements OnInit {
 
   onSave(): void {
     this.save.emit();
+  }
+
+  cancel(): void {
+    this.router.navigate([''])
   }
 }

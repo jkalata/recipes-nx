@@ -46,6 +46,9 @@
       "@recipes-nx/editing-shared-recipe-form-ui-save-recipe": [
         "libs/editing/shared/recipe-form/ui/save-recipe/src/index.ts"
       ],
+      "@recipes-nx/editing/shared/recipe-form/ui/cancel-button": [
+        "libs/editing/shared/recipe-form/ui/cancel-button/src/index.ts"
+      ],
       "@recipes-nx/header-ui-author-dialog": [
         "libs/header/ui-author-dialog/src/index.ts"
       ],
