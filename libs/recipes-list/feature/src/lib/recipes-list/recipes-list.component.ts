@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import {Router} from "@angular/router";
 import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
+import {SearchBoxFilter} from "../../../../utils/src";
 
 @Component({
   selector: 'recipes-nx-recipes-list-feature',
@@ -11,10 +12,12 @@ import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/re
 export class RecipesListComponent implements OnInit {
 
   recipes$ = this.recipesFacade.recipesCollection
+  filteredRecipes$ = this.recipes$
 
   constructor(
     private recipesFacade: RecipesFacade,
-    private router: Router
+    private router: Router,
+    private changeDetector: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +26,11 @@ export class RecipesListComponent implements OnInit {
 
   navigate(id: string) {
     this.router.navigate([id])
+  }
+
+  filter(searchTerm: string): void {
+    this.filteredRecipes$ = SearchBoxFilter.filter(this.recipes$, searchTerm)
+    this.changeDetector.markForCheck();
   }
 
 }

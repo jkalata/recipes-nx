@@ -63,8 +63,20 @@
       "@recipes-nx/recipes-list-edit-recipe-button-ui": [
         "libs/recipes-list/edit-recipe-button/ui/src/index.ts"
       ],
+      "@recipes-nx/recipes-list-utils": [
+        "libs/recipes-list/utils/src/index.ts"
+      ],
       "@recipes-nx/recipes-list/feature": [
         "libs/recipes-list/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/domain": [
+        "libs/recipes-list/search-box/domain/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/feature": [
+        "libs/recipes-list/search-box/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/ui": [
+        "libs/recipes-list/search-box/ui/src/index.ts"
       ],
       "@recipes-nx/recipes-list/ui": ["libs/recipes-list/ui/src/index.ts"],
       "@recipes-nx/shared-data-access": [
