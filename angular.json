@@ -15,6 +15,7 @@
     "editing-shared-recipe-form-ui-form": "libs/editing/shared/recipe-form/ui/form",
     "editing-shared-recipe-form-ui-remove-ingredient-button": "libs/editing/shared/recipe-form/ui/remove-ingredient-button",
     "editing-shared-recipe-form-ui-save-recipe": "libs/editing/shared/recipe-form/ui/save-recipe",
+    "editing-shared-recipe-form-utils": "libs/editing/shared/recipe-form/utils",
     "header-feature": "libs/header/feature",
     "header-ui": "libs/header/ui",
     "header-ui-author-dialog": "libs/header/ui-author-dialog",
