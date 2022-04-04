@@ -6,23 +6,31 @@ import {
   RecipeModel
 } from "@recipes-nx/shared-domain";
 import {ControlsOf, FormArray, FormBuilder, FormControl, FormGroup} from "@ngneat/reactive-forms";
-import {Validators} from "@angular/forms";
+import {AbstractControl, ValidationErrors, Validators} from "@angular/forms";
+import {Injectable} from "@angular/core";
+import {RecipesDataService} from "../../../data-access/src/lib/services/recipes-data.service";
+import {Observable, timer} from "rxjs";
+import {map, switchMap} from "rxjs/operators";
 
+@Injectable()
 export class RecipeFormCreator {
   private fb = new FormBuilder();
-  private recipe: RecipeModel | null;
+  private recipe!: RecipeModel | null;
 
-  constructor(recipe?: RecipeModel) {
-    this.recipe = recipe ?? null;
+  constructor(
+    private recipeDataService: RecipesDataService
+  ) {
   }
 
-  create(): FormGroup<ControlsOf<AddRecipePayload>>{
-    const formGroup = this.fb.group({
+  create(recipe?: RecipeModel): FormGroup<ControlsOf<AddRecipePayload>>{
+    this.recipe = recipe ?? null;
+    return this.fb.group({
       name: new FormControl(this.recipe?.name ?? '', [
         Validators.required,
         Validators.minLength(RECIPE_NAME_MINLENGTH),
         Validators.maxLength(RECIPE_NAME_MAXLENGTH)
-        ]
+        ],
+        [this.asyncNameValidator.bind(this)]
       ),
       description: new FormControl(this.recipe?.description ?? '', [
         Validators.required,
@@ -34,10 +42,27 @@ export class RecipeFormCreator {
       ]),
       ingredients: this.createIngredientsFormArray()
     })
-
-    this.recipe = null;
-    return formGroup;
   }
+
+  private asyncNameValidator(control: AbstractControl): Observable<ValidationErrors | null> {
+    return timer(500).pipe(
+      switchMap(() => this.recipeDataService.getCollection().pipe(
+        map(recipes => recipes.some(recipe => {
+          return !this.isTheSameAsInitial(recipe.name) && this.alreadyExists(recipe.name, control.value)
+        }) ? {'notUnique': true} : null
+        )
+      ))
+    )
+  }
+
+  private isTheSameAsInitial(name: string): boolean {
+    return name === this.recipe?.name
+  }
+
+  private alreadyExists(name: string, value: string): boolean {
+    return name === value
+  }
+
 
   private createIngredientsFormArray(): FormArray<IngredientModel> {
     return this.recipe?.ingredients ? this.getExistingIngredients(this.recipe.ingredients) : this.getNewIngredients();

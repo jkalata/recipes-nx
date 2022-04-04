@@ -7,6 +7,6 @@
   <recipes-nx-save-recipe-button
     class="save-button"
     (save)="onSave()"
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || form.pending"
   ></recipes-nx-save-recipe-button>
 </div>

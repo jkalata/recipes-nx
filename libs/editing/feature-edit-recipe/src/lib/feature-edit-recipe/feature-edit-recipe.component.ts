@@ -29,6 +29,7 @@ export class FeatureEditRecipeComponent implements OnInit {
 
   constructor(
     private recipeFacade: RecipesFacade,
+    private recipeFormCreator: RecipeFormCreator,
     private activatedRoute: ActivatedRoute,
     private changeDetector: ChangeDetectorRef,
     private router: Router
@@ -60,7 +61,7 @@ export class FeatureEditRecipeComponent implements OnInit {
     this.changeDetector.markForCheck();
     if (recipe) {
       this.editedRecipe = recipe;
-      this.form = new RecipeFormCreator(recipe).create();
+      this.form = this.recipeFormCreator.create(recipe);
       this.changeDetector.markForCheck();
     }
   }

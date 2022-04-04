@@ -16,14 +16,18 @@ export class FeatureAddRecipeComponent implements OnInit {
   form!: FormGroup<ControlsOf<AddRecipePayload>>;
   cancelGuard$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private recipeFacade: RecipesFacade, private router: Router) {}
+  constructor(
+    private recipeFacade: RecipesFacade,
+    private router: Router,
+    private recipeFormCreator: RecipeFormCreator
+  ) {}
 
   ngOnInit(): void {
     this.form = this.initEmptyForm();
   }
 
   private initEmptyForm(): FormGroup<ControlsOf<AddRecipePayload>> {
-    return new RecipeFormCreator().create();
+    return this.recipeFormCreator.create();
   }
 
   addRecipe(): void {
