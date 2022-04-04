@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/recipes-web",
         "index": "apps/recipes-web/src/index.html",
@@ -18,7 +20,10 @@
           "apps/recipes-web/src/favicon.ico",
           "apps/recipes-web/src/assets"
         ],
-        "styles": ["apps/recipes-web/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/recipes-web/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +88,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/recipes-web"],
+      "outputs": [
+        "coverage/apps/recipes-web"
+      ],
       "options": {
         "jestConfig": "apps/recipes-web/jest.config.js",
         "passWithNoTests": true

@@ -14,7 +14,84 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@recipes-nx/core": ["libs/core/src/index.ts"],
+      "@recipes-nx/delete-recipe/feature": [
+        "libs/delete-recipe/feature/src/index.ts"
+      ],
+      "@recipes-nx/delete-recipe/ui": ["libs/delete-recipe/ui/src/index.ts"],
+      "@recipes-nx/details/feature": ["libs/details/feature/src/index.ts"],
+      "@recipes-nx/details/ui": ["libs/details/ui/src/index.ts"],
+      "@recipes-nx/editing-feature-add-recipe": [
+        "libs/editing/feature-add-recipe/src/index.ts"
+      ],
+      "@recipes-nx/editing-feature-edit-recipe": [
+        "libs/editing/feature-edit-recipe/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form": [
+        "libs/editing/shared/recipe-form/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-add-ingredient-button": [
+        "libs/editing/shared/recipe-form/ui/add-ingredient-button/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-form": [
+        "libs/editing/shared/recipe-form/ui/form/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-remove-ingredient-button": [
+        "libs/editing/editing/shared/recipe-form/ui/remove-ingredient-button/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-recipe-form-ui-save-recipe": [
+        "libs/editing/shared/recipe-form/ui/save-recipe/src/index.ts"
+      ],
+      "@recipes-nx/editing-shared-utils": [
+        "libs/editing/shared/utils/src/index.ts"
+      ],
+      "@recipes-nx/editing/shared/recipe-form/ui/cancel-button": [
+        "libs/editing/shared/recipe-form/ui/cancel-button/src/index.ts"
+      ],
+      "@recipes-nx/header-ui-author-dialog": [
+        "libs/header/ui-author-dialog/src/index.ts"
+      ],
+      "@recipes-nx/header/feature": ["libs/header/feature/src/index.ts"],
+      "@recipes-nx/header/ui": ["libs/header/ui/src/index.ts"],
+      "@recipes-nx/recipes-list-add-recipe-button-feature": [
+        "libs/recipes-list/add-recipe-button/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-add-recipe-button-ui": [
+        "libs/recipes-list/add-recipe-button/ui/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-edit-recipe-button-feature": [
+        "libs/recipes-list/edit-recipe-button/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-edit-recipe-button-ui": [
+        "libs/recipes-list/edit-recipe-button/ui/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list-utils": [
+        "libs/recipes-list/utils/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/feature": [
+        "libs/recipes-list/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/domain": [
+        "libs/recipes-list/search-box/domain/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/feature": [
+        "libs/recipes-list/search-box/feature/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/search-box/ui": [
+        "libs/recipes-list/search-box/ui/src/index.ts"
+      ],
+      "@recipes-nx/recipes-list/ui": ["libs/recipes-list/ui/src/index.ts"],
+      "@recipes-nx/shared-data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
+      "@recipes-nx/shared-domain": ["libs/shared/domain/src/index.ts"],
+      "@recipes-nx/shared-ui-confirm-dialog": [
+        "libs/shared/ui-confirm-dialog/src/index.ts"
+      ],
+      "@recipes-nx/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@recipes-nx/shell": ["libs/shell/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

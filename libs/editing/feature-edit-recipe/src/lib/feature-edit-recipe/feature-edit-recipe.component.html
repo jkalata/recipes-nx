@@ -1,0 +1,7 @@
+<h1>Edit recipe</h1>
+<recipes-nx-recipe-form-feature
+  *ngIf="form"
+  [formGroup]="form"
+  (save)="updateRecipe()"
+  (cancel)="cancel()"
+></recipes-nx-recipe-form-feature>

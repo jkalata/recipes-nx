@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/ui-confirm-dialog",
+  "sourceRoot": "libs/shared/ui-confirm-dialog/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/ui-confirm-dialog"],
+      "options": {
+        "jestConfig": "libs/shared/ui-confirm-dialog/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/ui-confirm-dialog/src/**/*.ts",
+          "libs/shared/ui-confirm-dialog/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

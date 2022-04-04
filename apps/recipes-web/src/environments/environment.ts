@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiURL: "https://crudcrud.com/api/85f73a7898e147b2b9451b1d8a819712"
 };
 
 /*

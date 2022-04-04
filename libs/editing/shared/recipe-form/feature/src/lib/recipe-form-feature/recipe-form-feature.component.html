@@ -1,0 +1,12 @@
+<recipes-nx-recipe-form
+  (addIngredient)="addIngredient()"
+  (removeIngredient)="removeIngredient($event)"
+></recipes-nx-recipe-form>
+<div class="buttons-container">
+  <recipes-nx-cancel-button (cancel)="onCancel()"></recipes-nx-cancel-button>
+  <recipes-nx-save-recipe-button
+    class="save-button"
+    (save)="onSave()"
+    [disabled]="form.invalid"
+  ></recipes-nx-save-recipe-button>
+</div>

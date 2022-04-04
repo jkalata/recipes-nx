@@ -1,0 +1,24 @@
+.form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .form-container__col {
+    display: flex;
+    flex-direction: column;
+    flex: 50;
+  }
+
+  .form-container__col:first-child {
+    margin-right: 1em;
+  }
+
+  .form-container__col__ingredient-field {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-container__col__ingredient-field__item {
+    margin-right: 1em;
+  }
+}
