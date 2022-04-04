@@ -5,21 +5,25 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import {
   ConfirmDialogComponent
 } from "../../../../../shared/ui-confirm-dialog/src/lib/confirm-dialog/confirm-dialog.component";
+import { mergeMap, take} from "rxjs/operators";
 import {
-  RecipeFormFeatureComponent
-} from "../../../recipe-form/feature/src/lib/recipe-form-feature/recipe-form-feature.component";
+  FeatureAddRecipeComponent
+} from "../../../../feature-add-recipe/src/lib/feature-add-recipe/feature-add-recipe.component";
+import {
+  FeatureEditRecipeComponent
+} from "../../../../feature-edit-recipe/src/lib/feature-edit-recipe/feature-edit-recipe.component";
 
 @Injectable()
-export class UnsavedGuard implements CanDeactivate<RecipeFormFeatureComponent> {
+export class UnsavedGuard implements CanDeactivate<FeatureAddRecipeComponent | FeatureEditRecipeComponent> {
   constructor(private dialog: MatDialog) {}
 
   canDeactivate(
-    component: RecipeFormFeatureComponent,
+    component: FeatureAddRecipeComponent | FeatureEditRecipeComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
@@ -28,8 +32,13 @@ export class UnsavedGuard implements CanDeactivate<RecipeFormFeatureComponent> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return component.form.dirty
-      ? this.dialog.open(ConfirmDialogComponent).afterClosed()
-      : true;
+    return component.cancelGuard$
+      .pipe(
+        take(1),
+        mergeMap((value: boolean) =>  value && component.form?.dirty
+          ? this.dialog.open(ConfirmDialogComponent).afterClosed()
+          : of(true)
+        )
+      )
   }
 }

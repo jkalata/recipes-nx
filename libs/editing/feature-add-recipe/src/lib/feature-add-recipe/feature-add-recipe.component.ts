@@ -3,7 +3,8 @@ import { ControlsOf, FormGroup } from '@ngneat/reactive-forms';
 import { AddRecipePayload } from '@recipes-nx/shared-domain';
 import { Router } from '@angular/router';
 import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
-import {RecipeFormCreator} from "../../../../../shared/utils/src/recipe-form-creator/recipe-form-creator";
+import {BehaviorSubject} from "rxjs";
+import {RecipeFormCreator} from "@recipes-nx/shared/utils";
 
 @Component({
   selector: 'recipes-nx-feature-add-recipe',
@@ -13,6 +14,7 @@ import {RecipeFormCreator} from "../../../../../shared/utils/src/recipe-form-cre
 })
 export class FeatureAddRecipeComponent implements OnInit {
   form!: FormGroup<ControlsOf<AddRecipePayload>>;
+  cancelGuard$ = new BehaviorSubject<boolean>(false);
 
   constructor(private recipeFacade: RecipesFacade, private router: Router) {}
 
@@ -26,6 +28,16 @@ export class FeatureAddRecipeComponent implements OnInit {
 
   addRecipe(): void {
     this.recipeFacade.addRecipe(this.form.getRawValue());
+    this.cancelGuard$.next(false);
+    this.navigateBack()
+  }
+
+  cancel(): void {
+    this.cancelGuard$.next(true);
+    this.navigateBack();
+  }
+
+  private navigateBack(): void {
     this.router.navigate(['']);
   }
 }

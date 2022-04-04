@@ -10,7 +10,8 @@ import { AddRecipePayload, RecipeModel } from '@recipes-nx/shared-domain';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
-import {RecipeFormCreator} from "../../../../../shared/utils/src/recipe-form-creator/recipe-form-creator";
+import {BehaviorSubject} from "rxjs";
+import {RecipeFormCreator} from "@recipes-nx/shared/utils";
 
 @UntilDestroy()
 @Component({
@@ -21,8 +22,10 @@ import {RecipeFormCreator} from "../../../../../shared/utils/src/recipe-form-cre
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureEditRecipeComponent implements OnInit {
-  form: FormGroup<ControlsOf<AddRecipePayload>> | null = null;
   private editedRecipe!: RecipeModel;
+
+  form: FormGroup<ControlsOf<AddRecipePayload>> | null = null;
+  cancelGuard$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     private recipeFacade: RecipesFacade,
@@ -68,7 +71,17 @@ export class FeatureEditRecipeComponent implements OnInit {
         ...this.form.getRawValue(),
         _id: this.editedRecipe._id,
       });
-      this.router.navigate([`${this.editedRecipe._id}`]);
+      this.cancelGuard$.next(false);
+      this.navigateBackToDetails()
     }
+  }
+
+  cancel(): void {
+    this.cancelGuard$.next(true);
+    this.navigateBackToDetails();
+  }
+
+  private navigateBackToDetails(): void {
+    this.router.navigate([`${this.editedRecipe._id}`]);
   }
 }
