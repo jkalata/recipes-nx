@@ -9,9 +9,9 @@ import { ControlsOf, FormGroup } from '@ngneat/reactive-forms';
 import { AddRecipePayload, RecipeModel } from '@recipes-nx/shared-domain';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {BehaviorSubject} from "rxjs";
 import {RecipeFormCreator} from "@recipes-nx/shared/utils";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
 
 @UntilDestroy()
 @Component({

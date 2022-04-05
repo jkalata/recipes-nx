@@ -1,7 +1,7 @@
 import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {Router} from "@angular/router";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
 import {
   ConfirmDialogComponent
 } from "../../../../../shared/ui-confirm-dialog/src/lib/confirm-dialog/confirm-dialog.component";

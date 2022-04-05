@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {RecipeModel} from "@recipes-nx/shared-domain";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
 
 @UntilDestroy()
 @Component({

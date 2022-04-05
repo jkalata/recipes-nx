@@ -2,9 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ControlsOf, FormGroup } from '@ngneat/reactive-forms';
 import { AddRecipePayload } from '@recipes-nx/shared-domain';
 import { Router } from '@angular/router';
-import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {BehaviorSubject} from "rxjs";
 import {RecipeFormCreator} from "@recipes-nx/shared/utils";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
 
 @Component({
   selector: 'recipes-nx-feature-add-recipe',

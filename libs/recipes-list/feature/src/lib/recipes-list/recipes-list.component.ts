@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import {Router} from "@angular/router";
-import {RecipesFacade} from "../../../../../shared/data-access/src/lib/+state/recipes.facade";
 import {SearchBoxFilter} from "../../../../utils/src";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
 
 @Component({
   selector: 'recipes-nx-recipes-list-feature',
