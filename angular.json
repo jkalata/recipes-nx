@@ -32,6 +32,7 @@
     "recipes-web-e2e": "apps/recipes-web-e2e",
     "shared-data-access": "libs/shared/data-access",
     "shared-domain": "libs/shared/domain",
+    "shared-environment": "libs/shared/environment",
     "shared-ui-confirm-dialog": "libs/shared/ui-confirm-dialog",
     "shared-utils": "libs/shared/utils",
     "shell": "libs/shell"

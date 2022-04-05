@@ -6,7 +6,7 @@ import { RECIPES_FEATURE_KEY, recipesReducer } from './+state/recipes.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { RecipesEffects } from './+state/recipes.effects';
 import { RecipesFacade } from './+state/recipes.facade';
-import {environment} from "../../../../../apps/recipes-web/src/environments/environment";
+import {environment} from "@recipes-nx/shared/environment";
 
 @NgModule({
   imports: [
