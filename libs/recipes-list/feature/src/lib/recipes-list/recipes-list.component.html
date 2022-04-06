@@ -1,7 +1,0 @@
-<div class="recipes-container">
-    <recipes-nx-add-recipe></recipes-nx-add-recipe>
-    <recipes-nx-search-box-feature (valueChange)="filter($event)"></recipes-nx-search-box-feature>
-    <div class="recipes-container__list">
-      <recipes-nx-recipes-list [recipes]="filteredRecipes$ | async" (navigateToDetails)="navigate($event)"></recipes-nx-recipes-list>
-    </div>
-</div>

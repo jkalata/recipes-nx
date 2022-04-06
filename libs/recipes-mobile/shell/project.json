@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/recipes-mobile/shell",
+  "sourceRoot": "libs/recipes-mobile/shell/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/recipes-mobile/shell"],
+      "options": {
+        "jestConfig": "libs/recipes-mobile/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/recipes-mobile/shell/src/**/*.ts",
+          "libs/recipes-mobile/shell/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

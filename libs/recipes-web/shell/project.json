@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/recipes-web/shell",
+  "sourceRoot": "libs/recipes-web/shell/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/recipes-web/shell"],
+      "options": {
+        "jestConfig": "libs/recipes-web/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/recipes-web/shell/src/**/*.ts",
+          "libs/recipes-web/shell/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

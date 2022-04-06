@@ -1,0 +1,10 @@
+.details-container__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .details-container__header__recipe-name {
+    margin: 0;
+    font-weight: bold;
+  }
+}

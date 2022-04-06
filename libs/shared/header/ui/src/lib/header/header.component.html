@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="toolbar-row">
+    <ng-content select="[backButton]"></ng-content>
+    <span>Title</span>
+    <button mat-icon-button (click)="onOpen()">
+      <mat-icon> person </mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

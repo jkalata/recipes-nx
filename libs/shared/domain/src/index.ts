@@ -2,3 +2,4 @@ export * from './lib/interfaces/ingredient.model';
 export * from './lib/interfaces/recipe.model';
 export * from './lib/payloads/add-recipe.payload';
 export * from './lib/consts/validators.consts';
+export * from './lib/consts/cache.consts'

@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {AppRoutingModule} from "./app-routing.module";
-import {CoreModule} from "@recipes-nx/core";
-
+import { AppRoutingModule } from './app-routing.module';
+import { SharedCoreModule } from '@recipes-nx/shared-core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +12,7 @@ import {CoreModule} from "@recipes-nx/core";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CoreModule
+    SharedCoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

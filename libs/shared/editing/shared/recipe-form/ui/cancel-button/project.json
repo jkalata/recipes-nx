@@ -1,0 +1,28 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/editing/shared/recipe-form/ui/cancel-button",
+  "sourceRoot": "libs/shared/editing/shared/recipe-form/ui/cancel-button/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/shared/editing/shared/recipe-form/ui/cancel-button"
+      ],
+      "options": {
+        "jestConfig": "libs/shared/editing/shared/recipe-form/ui/cancel-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/editing/shared/recipe-form/ui/cancel-button/src/**/*.ts",
+          "libs/shared/editing/shared/recipe-form/ui/cancel-button/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

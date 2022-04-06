@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/header/ui-author-dialog",
+  "sourceRoot": "libs/shared/header/ui-author-dialog/src",
+  "prefix": "recipes-nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/header/ui-author-dialog"],
+      "options": {
+        "jestConfig": "libs/shared/header/ui-author-dialog/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/header/ui-author-dialog/src/**/*.ts",
+          "libs/shared/header/ui-author-dialog/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
