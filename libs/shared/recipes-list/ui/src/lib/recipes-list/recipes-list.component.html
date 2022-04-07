@@ -1,12 +1,12 @@
 <h1 *ngIf="recipes?.length === 0">No recipes</h1>
 <mat-card
   *ngFor="let recipe of recipes"
-  (click)="onClick(recipe._id)"
+  (click)="onClick(recipe.id)"
   class="recipe-card"
 >
   <div>{{ recipe.name }}</div>
   <div class="recipe-card__buttons">
-    <recipes-nx-edit-recipe [id]="recipe._id"></recipes-nx-edit-recipe>
-    <recipes-nx-delete-recipe [id]="recipe._id"></recipes-nx-delete-recipe>
+    <recipes-nx-edit-recipe [id]="recipe.id"></recipes-nx-edit-recipe>
+    <recipes-nx-delete-recipe [id]="recipe.id"></recipes-nx-delete-recipe>
   </div>
 </mat-card>

@@ -7,7 +7,7 @@ import {createReducer, on} from "@ngrx/store";
 export const RECIPES_FEATURE_KEY = 'recipes';
 
 export function selectId(item: RecipeModel): string {
-  return item._id;
+  return item.id;
 }
 
 const adapter: EntityAdapter<RecipeModel> = createEntityAdapter<RecipeModel>({

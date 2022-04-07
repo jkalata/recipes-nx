@@ -70,7 +70,7 @@ export class FeatureEditRecipeComponent implements OnInit {
     if (this.form) {
       this.recipeFacade.updateRecipe({
         ...this.form.getRawValue(),
-        _id: this.editedRecipe._id,
+        id: this.editedRecipe.id,
       });
       this.cancelGuard$.next(false);
       this.navigateBackToDetails();
@@ -83,6 +83,6 @@ export class FeatureEditRecipeComponent implements OnInit {
   }
 
   private navigateBackToDetails(): void {
-    this.router.navigate([`${this.editedRecipe._id}`]);
+    this.router.navigate([`${this.editedRecipe.id}`]);
   }
 }

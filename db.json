@@ -1,0 +1,22 @@
+{
+  "recipe": [
+    {
+      "id": 1,
+      "name": "Recipe 1",
+      "description": "Recipe description",
+      "preparationTimeInMinutes": 60,
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Ingredient 1",
+          "quantity": "Quantity 1"
+        },
+        {
+          "id": 2,
+          "name": "Ingredient 2",
+          "quantity": "Quantity 2"
+        }
+      ]
+    }
+  ]
+}

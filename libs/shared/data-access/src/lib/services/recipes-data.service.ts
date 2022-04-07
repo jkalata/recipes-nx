@@ -34,7 +34,7 @@ export class RecipesDataService {
 
   update(body: RecipeModel): Observable<void> {
     return this.http.put<void>(
-      this.endpoints.update.url({ id: body._id }),
+      this.endpoints.update.url({ id: body.id }),
       {
         name: body.name,
         description: body.description,
