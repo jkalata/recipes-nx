@@ -4,6 +4,7 @@
   </button>
 </recipes-nx-recipes-header-feature>
 <div class="outlet">
+  <recipes-nx-loader *ngIf="loading$ | async"></recipes-nx-loader>
   <router-outlet></router-outlet>
 </div>
 

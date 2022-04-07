@@ -6,7 +6,8 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { SharedDataAccessModule } from '@recipes-nx/shared-data-access';
 import { AddRecipeFeatureModule } from '@recipes-nx/shared-recipes-list-add-recipe-button-feature';
 import { SharedRecipesListSearchBoxFeatureModule } from '@recipes-nx/shared-recipes-list-search-box-feature';
-import {SharedRecipesListUiModule} from "@recipes-nx/shared-recipes-list-ui";
+import { SharedRecipesListUiModule } from '@recipes-nx/shared-recipes-list-ui';
+import { SharedUiLoaderModule } from '@recipes-nx/shared-ui-loader';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {SharedRecipesListUiModule} from "@recipes-nx/shared-recipes-list-ui";
     MatDialogModule,
     AddRecipeFeatureModule,
     SharedRecipesListSearchBoxFeatureModule,
+    SharedUiLoaderModule,
   ],
   declarations: [RecipesListComponent],
   exports: [RecipesListComponent],

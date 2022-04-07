@@ -1,5 +1,6 @@
 <recipes-nx-recipes-header-feature></recipes-nx-recipes-header-feature>
 <div class="container">
+  <recipes-nx-loader *ngIf="loading$ | async"></recipes-nx-loader>
   <div class="container__list">
     <recipes-nx-recipes-list-feature></recipes-nx-recipes-list-feature>
   </div>

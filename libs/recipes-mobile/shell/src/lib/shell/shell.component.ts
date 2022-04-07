@@ -1,5 +1,7 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {Router} from "@angular/router";
+import {RecipesFacade} from "@recipes-nx/shared-data-access";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'recipes-nx-shell',
@@ -8,10 +10,11 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShellComponent {
-  constructor(private router: Router) { }
+  loading$: Observable<boolean> = this.recipesFacade.loading;
+
+  constructor(private router: Router, private recipesFacade: RecipesFacade) { }
 
   navigateBack() : void {
     this.router.navigate(['../'])
   }
-
 }

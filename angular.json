@@ -38,6 +38,7 @@
     "shared-recipes-list-ui": "libs/shared/recipes-list/ui",
     "shared-recipes-list-utils": "libs/shared/recipes-list/utils",
     "shared-ui-confirm-dialog": "libs/shared/ui-confirm-dialog",
+    "shared-ui-loader": "libs/shared/ui-loader",
     "shared-utils": "libs/shared/utils"
   }
 }

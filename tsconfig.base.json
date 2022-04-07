@@ -101,6 +101,7 @@
       "@recipes-nx/shared-ui-confirm-dialog": [
         "libs/shared/ui-confirm-dialog/src/index.ts"
       ],
+      "@recipes-nx/shared-ui-loader": ["libs/shared/ui-loader/src/index.ts"],
       "@recipes-nx/shared/environment": [
         "libs/shared/environment/src/index.ts"
       ],
