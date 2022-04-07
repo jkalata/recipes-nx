@@ -34,7 +34,7 @@ export class RecipesDataService {
 
   update(body: RecipeModel): Observable<void> {
     return this.http.put<void>(
-      this.endpoints.update.url({ id: body.id }),
+      this.endpoints.update.url({ id: body.id.toString() }),
       {
         name: body.name,
         description: body.description,
@@ -44,7 +44,7 @@ export class RecipesDataService {
     );
   }
 
-  delete(id: string): Observable<void> {
-    return this.http.delete<void>(this.endpoints.delete.url({ id }));
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(this.endpoints.delete.url({ id: id.toString() }));
   }
 }

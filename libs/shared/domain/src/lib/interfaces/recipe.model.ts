@@ -1,7 +1,7 @@
 import { IngredientModel } from './ingredient.model';
 
 export interface RecipeModel {
-  id: string;
+  id: number;
   name: string;
   preparationTimeInMinutes: number;
   description: string;

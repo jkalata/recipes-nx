@@ -33,7 +33,7 @@ export class RecipesFacade {
     this.store.dispatch(fromRecipesActions.updateRecipe({recipe: body}));
   }
 
-  deleteRecipe(id: string): void {
+  deleteRecipe(id: number): void {
     this.store.dispatch(fromRecipesActions.deleteRecipe({id}));
   }
 }

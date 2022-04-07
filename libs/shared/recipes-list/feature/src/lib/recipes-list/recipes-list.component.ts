@@ -28,7 +28,7 @@ export class RecipesListComponent implements OnInit {
     this.recipesFacade.getRecipesCollection();
   }
 
-  navigate(id: string) {
+  navigate(id: number) {
     this.router.navigate([id]);
   }
 

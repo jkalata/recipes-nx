@@ -11,7 +11,7 @@ import { ConfirmDialogComponent } from '@recipes-nx/shared-ui-confirm-dialog';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteRecipeComponent {
-  @Input() id = '';
+  @Input() id: number | null = null;
 
   constructor(
     private recipeFacade: RecipesFacade,
@@ -24,7 +24,7 @@ export class DeleteRecipeComponent {
       .open(ConfirmDialogComponent)
       .afterClosed()
       .subscribe((result) => {
-        if (result) {
+        if (result && this.id) {
           this.recipeFacade.deleteRecipe(this.id);
           this.router.navigate(['']);
         }

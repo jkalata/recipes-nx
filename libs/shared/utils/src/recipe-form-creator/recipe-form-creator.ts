@@ -71,7 +71,7 @@ export class RecipeFormCreator {
   private getExistingIngredients(ingredients: IngredientModel[]): FormArray<IngredientModel> {
     return this.fb.array(
       ingredients.map(ingredient => this.fb.group({
-        _id: new FormControl(ingredient._id, Validators.required),
+        id: new FormControl(ingredient.id, Validators.required),
         name: new FormControl(ingredient.name, Validators.required),
         quantity: new FormControl(ingredient.quantity, Validators.required)
       }))
@@ -84,7 +84,7 @@ export class RecipeFormCreator {
     for(let i=0; i < INGREDIENTS_MIN; i++){
       formArray.push(
         this.fb.group({
-          _id: new FormControl((i+1).toString(), Validators.required),
+          id: new FormControl(i+1, Validators.required),
           name: new FormControl('', Validators.required),
           quantity: new FormControl('', Validators.required)
         })

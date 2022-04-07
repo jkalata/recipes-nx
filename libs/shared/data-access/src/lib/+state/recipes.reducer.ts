@@ -6,7 +6,7 @@ import {createReducer, on} from "@ngrx/store";
 
 export const RECIPES_FEATURE_KEY = 'recipes';
 
-export function selectId(item: RecipeModel): string {
+export function selectId(item: RecipeModel): number {
   return item.id;
 }
 

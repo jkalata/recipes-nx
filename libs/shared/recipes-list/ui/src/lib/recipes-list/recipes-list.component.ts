@@ -15,9 +15,9 @@ import { RecipeModel } from '@recipes-nx/shared-domain';
 })
 export class RecipesListComponent {
   @Input() recipes!: RecipeModel[] | null;
-  @Output() navigateToDetails = new EventEmitter<string>();
+  @Output() navigateToDetails = new EventEmitter<number>();
 
-  onClick(id: string) {
+  onClick(id: number) {
     this.navigateToDetails.emit(id);
   }
 }

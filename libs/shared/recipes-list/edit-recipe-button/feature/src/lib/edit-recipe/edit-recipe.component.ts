@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditRecipeComponent {
-  @Input() id = '';
+  @Input() id: number | null = null;
   constructor(private router: Router) {}
 
   edit(): void {

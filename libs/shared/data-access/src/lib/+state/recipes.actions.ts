@@ -66,7 +66,7 @@ export const updateRecipeSuccess = createAction(
 
 export const deleteRecipe = createAction(
   Types.DeleteRecipe,
-  props<{ id: string }>()
+  props<{ id: number }>()
 )
 
 export const deleteRecipeFail = createAction(

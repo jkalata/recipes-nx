@@ -43,14 +43,14 @@ export class RecipeFormFeatureComponent implements OnInit {
 
   private createNewIngredient(): FormGroup<ControlsOf<IngredientModel>> {
     return this.fb.group({
-      _id: new FormControl(this.getNewId(), Validators.required),
+      id: new FormControl(this.getNewId(), Validators.required),
       quantity: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
     });
   }
 
-  private getNewId(): string {
-    return (this.form.controls.ingredients.length + 1).toString();
+  private getNewId(): number {
+    return this.form.controls.ingredients.length + 1;
   }
 
   removeIngredient(index: number): void {
