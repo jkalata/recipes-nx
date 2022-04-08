@@ -6,6 +6,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {catchError, map, mergeMap} from 'rxjs/operators';
 import {RecipeModel} from "@recipes-nx/shared-domain";
 import {EMPTY} from "rxjs";
+import {optimisticUpdate} from "@nrwl/angular";
 
 @Injectable()
 export class RecipesEffects {
@@ -80,13 +81,16 @@ export class RecipesEffects {
   deleteRecipe$ = createEffect(() =>
     this.actions$.pipe(
       ofType(RecipesActions.deleteRecipe),
-      mergeMap(action => this.recipesDataService.delete(action.id).pipe(
-        map(() => RecipesActions.updateRecipeSuccess()),
-        catchError((error: HttpErrorResponse) => {
-          RecipesActions.deleteRecipeFail(error);
-          return EMPTY;
-        })
-      ))
+      optimisticUpdate({
+        run: (action) => {
+          return this.recipesDataService.delete(action.recipe.id).pipe(
+            map(() => RecipesActions.deleteRecipeSuccess())
+          )
+        },
+        undoAction: (action, error: HttpErrorResponse) => {
+          return RecipesActions.deleteRecipeFail({error, recipe: action.recipe});
+        }
+      })
     )
   );
 

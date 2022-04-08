@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RecipesFacade } from '@recipes-nx/shared-data-access';
 import { ConfirmDialogComponent } from '@recipes-nx/shared-ui-confirm-dialog';
+import {RecipeModel} from "@recipes-nx/shared-domain";
 
 @Component({
   selector: 'recipes-nx-delete-recipe',
@@ -11,7 +12,7 @@ import { ConfirmDialogComponent } from '@recipes-nx/shared-ui-confirm-dialog';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteRecipeComponent {
-  @Input() id: number | null = null;
+  @Input() recipe: RecipeModel | null = null;
 
   constructor(
     private recipeFacade: RecipesFacade,
@@ -24,8 +25,8 @@ export class DeleteRecipeComponent {
       .open(ConfirmDialogComponent)
       .afterClosed()
       .subscribe((result) => {
-        if (result && this.id) {
-          this.recipeFacade.deleteRecipe(this.id);
+        if (result && this.recipe) {
+          this.recipeFacade.deleteRecipe(this.recipe);
           this.router.navigate(['']);
         }
       });

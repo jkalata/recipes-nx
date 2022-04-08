@@ -6,13 +6,7 @@ import {createReducer, on} from "@ngrx/store";
 
 export const RECIPES_FEATURE_KEY = 'recipes';
 
-export function selectId(item: RecipeModel): number {
-  return item.id;
-}
-
-const adapter: EntityAdapter<RecipeModel> = createEntityAdapter<RecipeModel>({
-  selectId,
-});
+const adapter: EntityAdapter<RecipeModel> = createEntityAdapter<RecipeModel>();
 
 export interface RecipesState {
   recipes: EntityState<RecipeModel>;
@@ -97,18 +91,20 @@ export const recipesReducer = createReducer(
     loading: false,
     error: error,
   })),
-  on(fromRecipesActions.deleteRecipe,state => ({
+  on(fromRecipesActions.deleteRecipe, (state, {recipe}) => ({
     ...state,
+    recipes: adapter.removeOne(recipe.id, state.recipes),
     loading: true,
     error: null,
   })),
-  on(fromRecipesActions.deleteRecipeSuccess,state => ({
+  on(fromRecipesActions.deleteRecipeSuccess, state => ({
     ...state,
     loading: false,
     error: null,
   })),
-  on(fromRecipesActions.deleteRecipeFail,(state, {error}) => ({
+  on(fromRecipesActions.deleteRecipeFail, (state, {error, recipe}) => ({
     ...state,
+    recipes: adapter.addOne(recipe, state.recipes),
     loading: false,
     error: error,
   }))
